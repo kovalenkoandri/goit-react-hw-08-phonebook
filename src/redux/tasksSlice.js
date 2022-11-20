@@ -8,7 +8,6 @@ const initialState = {
     error: null,
   },
   filter: '',
-  visibleContacts: [],
 };
 const handlePending = state => {
   state.contacts.isLoading = true;
@@ -22,13 +21,7 @@ const tasksSlice = createSlice({
   initialState,
   reducers: {
     filterTask(state, action) {
-      const filter = action.payload;
-      const visibleContacts = state.contacts.items.filter(element =>
-        element.name
-          .toLocaleUpperCase()
-          .includes(action.payload.toLocaleUpperCase())
-      );
-      return { ...state, filter, visibleContacts };
+      state.filter = action.payload;
     },
   },
   extraReducers: {

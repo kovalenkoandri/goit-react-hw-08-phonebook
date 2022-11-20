@@ -12,3 +12,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   </React.StrictMode>
 );
+  // "github": "https://github.com/kovalenkoandri/goit-react-hw-08-phonebook",
