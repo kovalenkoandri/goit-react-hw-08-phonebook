@@ -7,7 +7,6 @@ const initialState = {
     isLoading: false,
     error: null,
   },
-  filter: '',
 };
 const handlePending = state => {
   state.contacts.isLoading = true;
@@ -16,14 +15,9 @@ const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
 };
-const tasksSlice = createSlice({
-  name: 'tasks',
+const contactsSlice = createSlice({
+  name: 'contactsSlice',
   initialState,
-  reducers: {
-    filterTask(state, action) {
-      state.filter = action.payload;
-    },
-  },
   extraReducers: {
     [fetchTasks.pending]: handlePending,
     [fetchTasks.fulfilled](state, action) {
@@ -52,5 +46,4 @@ const tasksSlice = createSlice({
   },
 });
 
-export const rootReducer = tasksSlice.reducer;
-export const { filterTask } = tasksSlice.actions;
+export const contactsReducer = contactsSlice.reducer;
