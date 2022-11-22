@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://637616f27e93bcb006c2c88f.mockapi.io';
+axios.defaults.baseURL = 'https://goit-task-manager.herokuapp.com/';
 
 export const fetchTasks = createAsyncThunk(
   'contacts/fetchAll',
