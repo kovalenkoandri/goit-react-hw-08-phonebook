@@ -10,12 +10,12 @@ import ContactList from 'components/ContactList';
 import ContactForm from 'components/ContactForm';
 import Filter from 'components/Filter';
 import { fetchTasks } from 'redux/operations';
-import { selectLoading, selectError, selectItems } from 'redux/selectors';
+import {  selectError, selectItems } from 'redux/selectors';
 export default function Tasks() {
   const dispatch = useDispatch();
   console.log(useSelector(selectItems));
   const items = useSelector(selectItems);
-  const isLoading = useSelector(selectLoading);
+  // const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
   useEffect(() => {
     dispatch(fetchTasks());
@@ -34,7 +34,7 @@ export default function Tasks() {
       <h2 className={css.title}>Contacts</h2>
       <Filter />
       <ContactList />
-      {isLoading && <b>Loading tasks...</b>}
+      {/* {isLoading && <b>Loading tasks...</b>} */}
       {error && <b>{error}</b>}
       <p>{items.length > 0 && JSON.stringify(items)}</p>
     </>
