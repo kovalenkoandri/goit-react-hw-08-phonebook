@@ -12,10 +12,10 @@ const ContactList = () => {
   return (
     <ul>
       {renderContacts().map(element => {
-        const { id, name, phone } = element;
+        const { id, name, number } = element;
         return (
           <li key={id} className={css.renderLi}>
-            {`${name}: ${phone} `}
+            {`${name}: ${number} `}
             <button
               type="button"
               className={css.renderBtn}

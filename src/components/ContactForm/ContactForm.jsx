@@ -10,7 +10,7 @@ const ContactForm = () => {
   const handleChangePhone = event => setPhone(event.target.value);
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
-  const handleSubmit = (name, phone, event) => {
+  const handleSubmit = (name, number, event) => {
     event.preventDefault(); // except refresh page onSubmit
     const form = event.target;
     if (
@@ -21,7 +21,7 @@ const ContactForm = () => {
       alert(`${name} is already in contacts.`);
       return;
     }
-    dispatch(addContact({ name, phone }));
+    dispatch(addContact({ name, number }));
     form.reset();
   };
   return (

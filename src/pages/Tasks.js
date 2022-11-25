@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet';
 // import { TaskList } from 'components/TaskList/TaskList';
 // import { TaskEditor } from 'components/TaskEditor/TaskEditor';
 // import { fetchTasks } from 'redux/tasks/operations';
@@ -9,23 +9,24 @@ import css from './Tasks.module.css';
 import ContactList from 'components/ContactList';
 import ContactForm from 'components/ContactForm';
 import Filter from 'components/Filter';
-import { fetchTasks } from 'redux/phonebook/operations';
-import { selectError, selectItems } from 'redux/phonebook/selectors';
+import { fetchContacts } from 'redux/phonebook/operations';
+import { selectError, selectLoading } from 'redux/phonebook/selectors';
 export default function Tasks() {
   const dispatch = useDispatch();
-  console.log(useSelector(selectItems));
-  const items = useSelector(selectItems);
+  // console.log(useSelector(selectItems));
+  // const items = useSelector(selectItems);
   // const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
   useEffect(() => {
-    dispatch(fetchTasks());
+    // dispatch(fetchTasks());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
     <>
-      <Helmet>
-        <title>Your tasks</title>
-      </Helmet>
+      {/* <Helmet> */}
+      <title>Your tasks</title>
+      {/* </Helmet> */}
       {/* <TaskEditor /> */}
       {/* <div>{isLoading && 'Request in progress...'}</div> */}
       {/* <TaskList /> */}
@@ -34,9 +35,9 @@ export default function Tasks() {
       <h2 className={css.title}>Contacts</h2>
       <Filter />
       <ContactList />
-      {/* {isLoading && <b>Loading tasks...</b>} */}
+      {selectLoading && <b>Loading tasks...</b>}
       {error && <b>{error}</b>}
-      <p>{items.length > 0 && JSON.stringify(items)}</p>
+      {/* <p>{items.length > 0 && JSON.stringify(items)}</p> */}
     </>
   );
 }
