@@ -4,8 +4,8 @@ import ContactForm from './ContactForm';
 import Filter from './Filter';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTasks } from 'redux/operations';
-import { selectLoading, selectError } from 'redux/selectors';
+import { fetchTasks } from 'redux/phonebook/operations';
+import { selectLoading, selectError } from 'redux/phonebook/selectors';
 const App = () => {
   const dispatch = useDispatch();
   // console.log(useSelector(selectItems));

@@ -1,5 +1,5 @@
-import { contactsReducer } from 'redux/contactsSlice';
-import { filterReducer } from 'redux/filterSlice';
+import { contactsReducer } from 'redux/phonebook/contactsSlice';
+import { filterReducer } from 'redux/phonebook/filterSlice';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import {
   persistStore,

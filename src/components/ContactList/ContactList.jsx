@@ -1,10 +1,7 @@
 import css from './ContactList.module.css';
-import { deleteContact } from 'redux/operations';
+import { deleteContact } from 'redux/phonebook/operations';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  selectItems,
-  selectFilter,
-} from 'redux/selectors';
+import { selectItems, selectFilter } from 'redux/phonebook/selectors';
 const ContactList = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectItems);

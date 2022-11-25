@@ -9,8 +9,8 @@ import css from './Tasks.module.css';
 import ContactList from 'components/ContactList';
 import ContactForm from 'components/ContactForm';
 import Filter from 'components/Filter';
-import { fetchTasks } from 'redux/operations';
-import {  selectError, selectItems } from 'redux/selectors';
+import { fetchTasks } from 'redux/phonebook/operations';
+import { selectError, selectItems } from 'redux/phonebook/selectors';
 export default function Tasks() {
   const dispatch = useDispatch();
   console.log(useSelector(selectItems));
