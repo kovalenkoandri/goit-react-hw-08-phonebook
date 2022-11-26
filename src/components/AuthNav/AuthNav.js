@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import css from './AuthNav.module.css';
 import { Icon } from '@chakra-ui/react';
-import { MdLogin } from 'react-icons/md';
+import { MdLogin, MdAppRegistration } from 'react-icons/md';
 import { iconStyles } from 'index.js';
 export const AuthNav = () => {
    
@@ -9,13 +9,11 @@ export const AuthNav = () => {
     <div>
       <NavLink className={css.link} to="/register">
         Register
+        <Icon as={MdAppRegistration} sx={iconStyles} />
       </NavLink>
       <NavLink className={css.link} to="/login">
         Log In
-        <Icon
-          as={MdLogin}
-          sx={iconStyles}
-        />
+        <Icon as={MdLogin} sx={iconStyles} />
       </NavLink>
     </div>
   );
