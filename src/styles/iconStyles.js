@@ -1,0 +1,17 @@
+export const iconStyles = {
+  // display: 'flex',
+  // alignItems: 'center',
+  // justifyContent: 'center',
+  // textAlign: 'center',
+  // boxSize: '250px',
+  // color: 'white',
+  // textShadow: '0 0 20px black',
+  // fontWeight: 'bold',
+  // fontSize: '20px',
+  // px: 4,
+  // background: 'url(https://picsum.photos/id/1080/200/300) center/cover no-repeat',
+  width: '32px',
+  height: '32px',
+  color: 'red.500',
+  margin: '4px',
+};

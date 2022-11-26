@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { filterTask } from 'redux/phonebook/filterSlice';
 import { selectFilter } from 'redux/phonebook/selectors';
 import { Search2Icon } from '@chakra-ui/icons';
-import { iconStyles } from 'index.js';
+import { iconStyles } from 'styles/iconStyles';
 
 const Filter = () => {
   const dispatch = useDispatch();

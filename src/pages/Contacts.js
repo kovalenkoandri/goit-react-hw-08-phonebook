@@ -5,12 +5,16 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { TaskEditor } from 'components/TaskEditor/TaskEditor';
 // import { fetchTasks } from 'redux/tasks/operations';
 // import { selectLoading } from 'redux/tasks/selectors';
-import css from './Tasks.module.css';
+// import css from './Tasks.module.css';
 import ContactList from 'components/ContactList';
 import ContactForm from 'components/ContactForm';
 import Filter from 'components/Filter';
 import { fetchContacts } from 'redux/phonebook/operations';
 import { selectError, selectLoading } from 'redux/phonebook/selectors';
+// import { titleStyles } from 'index';
+import { theme } from 'index';
+import { Box, Text } from '@chakra-ui/react';
+
 export default function Tasks() {
   const dispatch = useDispatch();
   // console.log(useSelector(selectItems));
@@ -22,7 +26,7 @@ export default function Tasks() {
     // dispatch(fetchTasks());
     dispatch(fetchContacts());
   }, [dispatch]);
-
+  
   return (
     <>
       {/* <Helmet> */}
@@ -31,13 +35,13 @@ export default function Tasks() {
       {/* <TaskEditor /> */}
       {/* <div>{isLoading && 'Request in progress...'}</div> */}
       {/* <TaskList /> */}
-      <h1 className={css.title}>Phonebook</h1>
+      <Text sx={theme.titleStyles}>Phonebook</Text>
+      <Box theme>Phonebook</Box>
       <ContactForm />
-      <h2 className={css.title}>Contacts</h2>
+      <Text sx={theme.titleStyles}>Contacts</Text>
       <Filter />
       <ContactList />
       {isLoading && <b>Loading tasks...</b>}
-      {console.log(selectLoading)}
       {error && <b>{error}</b>}
       {/* <p>{items.length > 0 && JSON.stringify(items)}</p> */}
     </>

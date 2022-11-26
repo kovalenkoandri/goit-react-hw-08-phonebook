@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import css from './AuthNav.module.css';
 import { Icon } from '@chakra-ui/react';
 import { MdLogin, MdAppRegistration } from 'react-icons/md';
-import { iconStyles } from 'index.js';
+import { iconStyles } from 'styles/iconStyles';
 export const AuthNav = () => {
    
   return (

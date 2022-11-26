@@ -3,7 +3,7 @@ import { useAuth } from 'hooks';
 import css from './Navigation.module.css';
 import { Icon } from '@chakra-ui/react';
 import { MdOutlineRequestPage, MdContactPage } from 'react-icons/md';
-import { iconStyles } from 'index.js';
+import { iconStyles } from 'styles/iconStyles';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();

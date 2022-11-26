@@ -3,7 +3,7 @@ import { deleteContact } from 'redux/phonebook/operations';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectItems, selectFilter } from 'redux/phonebook/selectors';
 import { DeleteIcon } from '@chakra-ui/icons';
-import { iconStyles } from 'index.js';
+import { iconStyles } from 'styles/iconStyles';
 
 const ContactList = () => {
   const dispatch = useDispatch();

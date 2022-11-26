@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectItems } from 'redux/phonebook/selectors';
 import { addContact } from 'redux/phonebook/operations';
 import { PhoneIcon, EditIcon, CheckCircleIcon } from '@chakra-ui/icons';
-import { iconStyles } from 'index.js';
+import { iconStyles } from 'styles/iconStyles';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
