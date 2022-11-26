@@ -17,6 +17,7 @@ export default function Tasks() {
   // const items = useSelector(selectItems);
   // const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
+  const isLoading = useSelector(selectLoading);
   useEffect(() => {
     // dispatch(fetchTasks());
     dispatch(fetchContacts());
@@ -35,7 +36,8 @@ export default function Tasks() {
       <h2 className={css.title}>Contacts</h2>
       <Filter />
       <ContactList />
-      {selectLoading && <b>Loading tasks...</b>}
+      {isLoading && <b>Loading tasks...</b>}
+      {console.log(selectLoading)}
       {error && <b>{error}</b>}
       {/* <p>{items.length > 0 && JSON.stringify(items)}</p> */}
     </>
