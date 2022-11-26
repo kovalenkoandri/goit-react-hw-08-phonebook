@@ -7,22 +7,31 @@ import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from 'redux/store';
 import * as React from 'react';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-const colors = {
-  brand: {
-    900: '#1a365d',
-    800: '#153e75',
-    700: '#2a69ac',
-  },
+import { ChakraProvider } from '@chakra-ui/react';
+export const iconStyles = {
+  // display: 'flex',
+  // alignItems: 'center',
+  // justifyContent: 'center',
+  // textAlign: 'center',
+  // boxSize: '250px',
+  // color: 'white',
+  // textShadow: '0 0 20px black',
+  // fontWeight: 'bold',
+  // fontSize: '20px',
+  // px: 4,
+  // background: 'url(https://picsum.photos/id/1080/200/300) center/cover no-repeat',
+  width: '32px',
+  height: '32px',
+  color: 'red.500',
+  margin: '4px',
 };
 
-const theme = extendTheme({ colors });
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter basename="/goit-react-hw-08-phonebook">
-          <ChakraProvider theme={theme}>
+          <ChakraProvider>
             <App />
           </ChakraProvider>
         </BrowserRouter>

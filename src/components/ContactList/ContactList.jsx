@@ -3,6 +3,7 @@ import { deleteContact } from 'redux/phonebook/operations';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectItems, selectFilter } from 'redux/phonebook/selectors';
 import { DeleteIcon } from '@chakra-ui/icons';
+import { iconStyles } from 'index.js';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const ContactList = () => {
               onClick={() => dispatch(deleteContact(id))}
             >
               Delete
-              <DeleteIcon w={8} h={8} color="red.500" />
+              <DeleteIcon sx={iconStyles} />
             </button>
           </li>
         );

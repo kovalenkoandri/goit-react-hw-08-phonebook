@@ -4,6 +4,7 @@ import { useAuth } from 'hooks';
 import css from './UserMenu.module.css';
 import { Icon } from '@chakra-ui/react';
 import { MdLogout } from 'react-icons/md';
+import { iconStyles } from 'index.js';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ export const UserMenu = () => {
       <p className={css.username}>Welcome, {user.name}</p>
       <button type="button" onClick={() => dispatch(logOut())}>
         Logout
-        <Icon as={MdLogout} w={8} h={8} color="red.500" />
+        <Icon as={MdLogout} sx={iconStyles} />
       </button>
     </div>
   );

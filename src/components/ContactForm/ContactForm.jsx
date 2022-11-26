@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectItems } from 'redux/phonebook/selectors';
 import { addContact } from 'redux/phonebook/operations';
 import { PhoneIcon, EditIcon, CheckCircleIcon } from '@chakra-ui/icons';
+import { iconStyles } from 'index.js';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -33,7 +34,7 @@ const ContactForm = () => {
       autoComplete="off"
     >
       <label htmlFor="name">Name</label>
-      <EditIcon w={8} h={8} color="red.500" />
+      <EditIcon sx={iconStyles} />
       <input
         type="text"
         name="name"
@@ -48,7 +49,7 @@ const ContactForm = () => {
         //remove value attributes, the reset will set all the values to blank
       />
       <label htmlFor="number">Number</label>
-      <PhoneIcon w={8} h={8} color="red.500" />
+      <PhoneIcon sx={iconStyles} />
       <input
         type="tel"
         name="number"
@@ -63,7 +64,7 @@ const ContactForm = () => {
       />
       <button type="submit">
         Add contact
-        <CheckCircleIcon w={8} h={8} color="red.500" />
+        <CheckCircleIcon sx={iconStyles} />
       </button>
     </form>
   );
