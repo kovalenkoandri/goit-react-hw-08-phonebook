@@ -12,6 +12,7 @@ import Filter from 'components/Filter';
 import { fetchContacts } from 'redux/phonebook/operations';
 import { selectError, selectLoading } from 'redux/phonebook/selectors';
 import { titleStyles } from 'styles/titleStyles';
+import { boxStyles } from 'styles/boxStyles';
 import { Box, Text } from '@chakra-ui/react';
 
 export default function Tasks() {
@@ -25,7 +26,7 @@ export default function Tasks() {
     // dispatch(fetchTasks());
     dispatch(fetchContacts());
   }, [dispatch]);
-  
+
   return (
     <>
       {/* <Helmet> */}
@@ -34,12 +35,13 @@ export default function Tasks() {
       {/* <TaskEditor /> */}
       {/* <div>{isLoading && 'Request in progress...'}</div> */}
       {/* <TaskList /> */}
+      <Box sx={boxStyles}>
       <Text sx={titleStyles}>Phonebook</Text>
-      <Box theme>Phonebook</Box>
-      <ContactForm />
+        <ContactForm />
       <Text sx={titleStyles}>Contacts</Text>
       <Filter />
       <ContactList />
+      </Box>
       {isLoading && <b>Loading tasks...</b>}
       {error && <b>{error}</b>}
       {/* <p>{items.length > 0 && JSON.stringify(items)}</p> */}
