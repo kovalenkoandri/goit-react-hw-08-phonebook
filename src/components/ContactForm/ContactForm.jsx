@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectItems } from 'redux/phonebook/selectors';
 import { addContact } from 'redux/phonebook/operations';
+import { PhoneIcon, EditIcon, CheckCircleIcon } from '@chakra-ui/icons';
+
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -31,6 +33,7 @@ const ContactForm = () => {
       autoComplete="off"
     >
       <label htmlFor="name">Name</label>
+      <EditIcon w={8} h={8} color="red.500" />
       <input
         type="text"
         name="name"
@@ -40,10 +43,12 @@ const ContactForm = () => {
         required
         className={css.inputName}
         onChange={handleChangeName}
+        placeholder="Enter name!"
         // value={name}
         //remove value attributes, the reset will set all the values to blank
       />
       <label htmlFor="number">Number</label>
+      <PhoneIcon w={8} h={8} color="red.500" />
       <input
         type="tel"
         name="number"
@@ -52,10 +57,14 @@ const ContactForm = () => {
         required
         className={css.inputName}
         onChange={handleChangePhone}
+        placeholder="Enter number!"
         // value={number}
         // if uncomment from.reset() doesn't work at App.jsx
       />
-      <button type="submit">Add contact</button>
+      <button type="submit">
+        Add contact
+        <CheckCircleIcon w={8} h={8} color="red.500" />
+      </button>
     </form>
   );
 };
