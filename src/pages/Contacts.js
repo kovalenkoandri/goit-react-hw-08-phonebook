@@ -36,11 +36,11 @@ export default function Tasks() {
       {/* <div>{isLoading && 'Request in progress...'}</div> */}
       {/* <TaskList /> */}
       <Box sx={boxStyles}>
-      <Text sx={titleStyles}>Phonebook</Text>
+        <Text sx={titleStyles}>Phonebook</Text>
         <ContactForm />
-      <Text sx={titleStyles}>Contacts</Text>
-      <Filter />
-      <ContactList />
+        <Text sx={titleStyles}>Contacts</Text>
+        <Filter />
+        <ContactList />
       </Box>
       {isLoading && <b>Loading tasks...</b>}
       {error && <b>{error}</b>}
