@@ -13,7 +13,7 @@ import { fetchContacts } from 'redux/phonebook/operations';
 import { selectError, selectLoading } from 'redux/phonebook/selectors';
 import { titleStyles } from 'styles/titleStyles';
 import { boxStyles } from 'styles/boxStyles';
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, useColorMode } from '@chakra-ui/react';
 
 export default function Tasks() {
   const dispatch = useDispatch();
@@ -26,7 +26,23 @@ export default function Tasks() {
     // dispatch(fetchTasks());
     dispatch(fetchContacts());
   }, [dispatch]);
-
+  const Button = ({ onClick, children }) => {
+    return (
+      <button type="button" onClick={onClick}>
+        {children}
+      </button>
+    );
+  };
+const StyleColorMode = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+  return (
+    <header>
+      <Button onClick={toggleColorMode}>
+        Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+      </Button>
+    </header>
+  );
+}
   return (
     <>
       {/* <Helmet> */}
@@ -35,6 +51,7 @@ export default function Tasks() {
       {/* <TaskEditor /> */}
       {/* <div>{isLoading && 'Request in progress...'}</div> */}
       {/* <TaskList /> */}
+      {StyleColorMode()}
       <Box sx={boxStyles}>
         <Text sx={titleStyles}>Phonebook</Text>
         <ContactForm />
