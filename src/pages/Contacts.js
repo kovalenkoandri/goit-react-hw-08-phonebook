@@ -52,7 +52,7 @@ const StyleColorMode = () => {
       {/* <div>{isLoading && 'Request in progress...'}</div> */}
       {/* <TaskList /> */}
       {StyleColorMode()}
-      <Box sx={boxStyles}>
+      <Box sx={boxStyles} >
         <Text sx={titleStyles}>Phonebook</Text>
         <ContactForm />
         <Text sx={titleStyles}>Contacts</Text>
