@@ -10,13 +10,7 @@
 .inputName {
   display: block;
 }
-@media screen and (min-device-width: 600px) {
-  .phonebookForm {
-    width: 30vw;
-  }
-}
-@media screen and (min-device-width: 210px) and (max-device-width: 599px) {
-  .phonebookForm {
-    width: 90vw;
-  }
+.btnAddContact {
+  display: flex;
+  align-items: flex-start;
 }

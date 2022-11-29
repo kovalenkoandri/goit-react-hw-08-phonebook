@@ -3,11 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectItems } from 'redux/phonebook/selectors';
 import { addContact } from 'redux/phonebook/operations';
-import {
-  PhoneIcon,
-  EditIcon,
-  CheckCircleIcon,
-} from '@chakra-ui/icons';
+import { PhoneIcon, EditIcon, CheckCircleIcon } from '@chakra-ui/icons';
 import { iconStyles } from 'styles/iconStyles';
 import { Button } from '@chakra-ui/react';
 
@@ -73,7 +69,7 @@ const ContactForm = () => {
         size="md"
         variant="ghost"
         rightIcon={<CheckCircleIcon sx={iconStyles} />}
-        style={{ alignItems: 'flex-start' }}
+        className={css.btnAddContact}
       >
         Add contact
       </Button>
