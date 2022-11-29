@@ -9,14 +9,13 @@ import { Button } from '@chakra-ui/react';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const handleChangeName = event => setName(event.target.value);
-  const handleChangePhone = event => setPhone(event.target.value);
+  const handleChangePhone = event => setNumber(event.target.value);
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
   const handleSubmit = (name, number, event) => {
     event.preventDefault(); // except refresh page onSubmit
-    const form = event.target;
     if (
       items.some(el =>
         el.name.toLocaleUpperCase().includes(name.toLocaleUpperCase())
@@ -26,12 +25,13 @@ const ContactForm = () => {
       return;
     }
     dispatch(addContact({ name, number }));
-    form.reset();
+    setName('');
+    setNumber('');
   };
   return (
     <form
       className={css.phonebookForm}
-      onSubmit={event => handleSubmit(name, phone, event)}
+      onSubmit={event => handleSubmit(name, number, event)}
       autoComplete="off"
     >
       <label htmlFor="name">Name</label>
@@ -46,8 +46,7 @@ const ContactForm = () => {
         className={css.inputName}
         onChange={handleChangeName}
         placeholder="Enter name!"
-        // value={name}
-        //remove value attributes, the reset will set all the values to blank
+        value={name}
       />
       <label htmlFor="number">Number</label>
       <PhoneIcon sx={iconStyles} />
@@ -60,8 +59,7 @@ const ContactForm = () => {
         className={css.inputName}
         onChange={handleChangePhone}
         placeholder="Enter number!"
-        // value={number}
-        // if uncomment from.reset() doesn't work at App.jsx
+        value={number}
       />
       <Button
         type="submit"
