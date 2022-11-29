@@ -13,7 +13,9 @@ import { fetchContacts } from 'redux/phonebook/operations';
 import { selectError, selectLoading } from 'redux/phonebook/selectors';
 import { titleStyles } from 'styles/titleStyles';
 import { boxStyles } from 'styles/boxStyles';
-import { Box, Text, useColorMode } from '@chakra-ui/react';
+import { Box, Text, useColorMode, Button, Icon } from '@chakra-ui/react';
+import { iconStyles } from 'styles/iconStyles';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 export default function Tasks() {
   const dispatch = useDispatch();
@@ -26,23 +28,27 @@ export default function Tasks() {
     // dispatch(fetchTasks());
     dispatch(fetchContacts());
   }, [dispatch]);
-  const Button = ({ onClick, children }) => {
+
+  const StyleColorMode = () => {
+    const { colorMode, toggleColorMode } = useColorMode();
     return (
-      <button type="button" onClick={onClick}>
-        {children}
-      </button>
-    );
-  };
-const StyleColorMode = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  return (
-    <header>
-      <Button onClick={toggleColorMode}>
+      <Button
+        colorScheme="teal"
+        size="md"
+        variant="ghost"
+        onClick={toggleColorMode}
+        rightIcon={
+          colorMode === 'dark' ? (
+            <Icon as={FaSun} sx={iconStyles} />
+          ) : (
+            <Icon as={FaMoon} sx={iconStyles} />
+          )
+        }
+      >
         Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
       </Button>
-    </header>
-  );
-}
+    );
+  };
   return (
     <>
       {/* <Helmet> */}
@@ -52,7 +58,7 @@ const StyleColorMode = () => {
       {/* <div>{isLoading && 'Request in progress...'}</div> */}
       {/* <TaskList /> */}
       {StyleColorMode()}
-      <Box sx={boxStyles} >
+      <Box sx={boxStyles}>
         <Text sx={titleStyles}>Phonebook</Text>
         <ContactForm />
         <Text sx={titleStyles}>Contacts</Text>

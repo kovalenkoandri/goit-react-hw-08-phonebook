@@ -3,8 +3,13 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectItems } from 'redux/phonebook/selectors';
 import { addContact } from 'redux/phonebook/operations';
-import { PhoneIcon, EditIcon, CheckCircleIcon } from '@chakra-ui/icons';
+import {
+  PhoneIcon,
+  EditIcon,
+  CheckCircleIcon,
+} from '@chakra-ui/icons';
 import { iconStyles } from 'styles/iconStyles';
+import { Button } from '@chakra-ui/react';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -62,10 +67,16 @@ const ContactForm = () => {
         // value={number}
         // if uncomment from.reset() doesn't work at App.jsx
       />
-      <button type="submit">
+      <Button
+        type="submit"
+        colorScheme="teal"
+        size="md"
+        variant="ghost"
+        rightIcon={<CheckCircleIcon sx={iconStyles} />}
+        style={{ alignItems: 'flex-start' }}
+      >
         Add contact
-        <CheckCircleIcon sx={iconStyles} />
-      </button>
+      </Button>
     </form>
   );
 };
