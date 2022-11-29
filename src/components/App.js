@@ -6,6 +6,7 @@ import { RestrictedRoute } from './RestrictedRoute';
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
 import { AppBar } from './AppBar/AppBar';
+import { StyleColorMode } from 'components/StyleColorMode';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -25,6 +26,7 @@ export const App = () => {
   ) : (
     <>
       <AppBar />
+      {StyleColorMode()}
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<HomePage />} />
