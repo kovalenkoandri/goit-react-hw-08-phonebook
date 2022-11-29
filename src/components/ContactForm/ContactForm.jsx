@@ -6,6 +6,8 @@ import { addContact } from 'redux/phonebook/operations';
 import { PhoneIcon, EditIcon, CheckCircleIcon } from '@chakra-ui/icons';
 import { iconStyles } from 'styles/iconStyles';
 import { Button } from '@chakra-ui/react';
+import { Input } from '@chakra-ui/react';
+import { InputStyles } from 'styles/inputStyles';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -36,7 +38,7 @@ const ContactForm = () => {
     >
       <label htmlFor="name">Name</label>
       <EditIcon sx={iconStyles} />
-      <input
+      <Input
         type="text"
         name="name"
         id="name"
@@ -47,10 +49,12 @@ const ContactForm = () => {
         onChange={handleChangeName}
         placeholder="Enter name!"
         value={name}
+        sx={InputStyles()}
       />
       <label htmlFor="number">Number</label>
       <PhoneIcon sx={iconStyles} />
-      <input
+      <Input
+        sx={InputStyles()}
         type="tel"
         name="number"
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
