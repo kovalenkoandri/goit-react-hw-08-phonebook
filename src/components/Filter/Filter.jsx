@@ -4,6 +4,8 @@ import { filterTask } from 'redux/phonebook/filterSlice';
 import { selectFilter } from 'redux/phonebook/selectors';
 import { Search2Icon } from '@chakra-ui/icons';
 import { iconStyles } from 'styles/iconStyles';
+import { Input } from '@chakra-ui/react';
+import { InputStyles } from 'styles/inputStyles';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -12,12 +14,13 @@ const Filter = () => {
     <>
       <label htmlFor="filter">Find contacts by name</label>
       <Search2Icon sx={iconStyles} />
-      <input
+      <Input
         type="text"
         name="filter"
         className={css.inputName}
         onChange={event => dispatch(filterTask(event.target.value))}
         value={filter}
+        sx={InputStyles()}
       />
     </>
   );
