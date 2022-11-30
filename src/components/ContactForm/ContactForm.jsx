@@ -8,6 +8,7 @@ import { Button } from '@chakra-ui/react';
 import { Input } from '@chakra-ui/react';
 import { InputStyles } from 'styles/inputStyles';
 import { Formik } from 'formik';
+import { Text } from '@chakra-ui/react';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -64,9 +65,9 @@ const ContactForm = () => {
 
         handleChange,
 
-        handleSubmit,
+        handleBlur,
 
-        isSubmitting,
+        handleSubmit,
 
         /* and other goodies */
       }) => (
@@ -80,13 +81,21 @@ const ContactForm = () => {
               type="text"
               name="name"
               onChange={handleChange}
+              onBlur={handleBlur}
               placeholder="type name here"
               value={values.name}
               sx={InputStyles()}
               className={css.inputName}
             />
           </label>
-          {errors.name && touched.name && errors.name}
+          <Text
+            bgGradient="linear(to-l, #7928CA, #FF0080)"
+            bgClip="text"
+            fontSize="1em"
+            fontWeight="extrabold"
+          >
+            {errors.name && touched.name && errors.name}
+          </Text>
           <label>
             Phone number must be digits and can contain spaces, dashes,
             parentheses and can start with +
@@ -95,16 +104,23 @@ const ContactForm = () => {
               type="tel"
               name="number"
               onChange={handleChange}
+              onBlur={handleBlur}
               placeholder="type number here"
               value={values.number}
               sx={InputStyles()}
               className={css.inputName}
             />
           </label>
-          {errors.number && touched.number && errors.number}
+          <Text
+            bgGradient="linear(to-l, #7928CA, #FF0080)"
+            bgClip="text"
+            fontSize="1em"
+            fontWeight="extrabold"
+          >
+            {errors.number && touched.number && errors.number}
+          </Text>
           <Button
             type="submit"
-            disabled={isSubmitting}
             colorScheme="teal"
             size="md"
             variant="ghost"
