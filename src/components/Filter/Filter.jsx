@@ -12,16 +12,18 @@ const Filter = () => {
   const filter = useSelector(selectFilter);
   return (
     <>
-      <label htmlFor="filter">Find contacts by name</label>
-      <Search2Icon sx={iconStyles} />
-      <Input
-        type="text"
-        name="filter"
-        className={css.inputName}
-        onChange={event => dispatch(filterTask(event.target.value))}
-        value={filter}
-        sx={InputStyles()}
-      />
+      <label>
+        Find contacts by name
+        <Search2Icon sx={iconStyles} />
+        <Input
+          type="text"
+          name="filter"
+          className={css.inputName}
+          onChange={event => dispatch(filterTask(event.target.value))}
+          value={filter}
+          sx={InputStyles()}
+        />
+      </label>
     </>
   );
 };
